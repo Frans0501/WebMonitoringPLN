@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&display=swap">
+    <link rel="stylesheet" href="../styles/adminDashboard.css">
+    
+</head>
+<body>
+    <h2 class="teks">Admin Dashboard</h2>
+
+    <div class="admin-info">
+        <div class="info-box satu">
+            <p>250</p>
+            <h4>PENGGUNA</h4>
+        </div>
+        <div class="info-box dua">
+            <p>15</p>
+            <h4>PESAN MASUK</h4>
+        </div>
+    </div>
+    <div class="container">
+        <div class="clock">
+            <div id="Date">Monday 26 September 2023</div>
+            <ul>
+                <li id="hours">05</li>
+                <li id="point">:</li>
+                <li id="min">20</li>
+                <li id="point">:</li>
+                <li id="sec">30</li>
+            </ul>
+        </div>
+    </div>
+    <div class="keluar">
+        <input type="submit" value="Logout" id="keluar">
+    </div>
+    <main>
+        <div class="admin-content">
+            <div class="filtering">
+                <h2>Pencarian</h2>
+                <label for="noMeteran">Nomor Meteran</label>
+                <input type="text" placeholder="No Meteran">
+                <input type="submit" value="Mencari" id="cari">
+            </div>
+
+        </div>
+
+        <div class="user-table">
+            <h2>Daftar Pengguna</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No Meteran</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Tanggungan Pembayaran</th>
+                        <th>Detail Pengguna</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123456789</td>
+                        <td>Zhafran athofani</td>
+                        <td>jl Sabar</td>
+                        <td>0</td>
+                        <td><input type="submit" value="Lihat Detail" id="detail"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../script/clock.js"></script>
+</body>
+</html>

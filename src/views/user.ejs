@@ -1,0 +1,81 @@
+
+    <main class="table">
+        <div class="profile">
+            <!-- <button class="edit" onclick="editProfile()">EDIT</button> -->
+          <div class="image">
+            <img src="../image/profile.png" alt="profile">
+          </div>
+          <div class="text">
+            <table>
+              <% if (dataUser && dataUser.length > 0) { %>
+                <% dataUser.forEach((data, i) => { %>
+                    <tr id="nama">
+                      <td>
+                          <h3><%= data.nama %></h3>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Nomor Meteran</td>
+                      <td>:</td>
+                      <td><%= data.noMeteran %></td>
+                    </tr>
+                    <tr>
+                      <td>Alamat</td>
+                      <td>:</td>
+                      <td><%= data.alamat %></td>
+                    </tr>
+                    <tr>
+                      <td>kota</td>
+                      <td>:</td>
+                      <td><%= data.kota %></td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3">Tidak ada data</td>
+                </tr>
+            <% } %>
+            </table>
+          </div>
+        </div>
+        
+        <div class="table_body">
+          <table>
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Total Penggunaan kWh</th>
+                <th>Total Pembayaran</th>
+                <th>Deadline Pembayaran</th>
+                <th>Status Pembayaran</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if (dataKwhUser && dataKwhUser.length > 0) { %>
+                <% dataKwhUser.forEach((data, i) => { %>
+                    <tr>
+                      <td><%= i + 1 %></td>
+                      <td><%= data.kwh %></td>
+                      <td>
+                        <strong>Rp <%= data.pembayaran %></strong>
+                      </td>
+                      <td><%= data.batas %></td>
+                      <td>
+                        <p class="status <%= data.status ? 'paid' : 'unpaid' %>"><%= data.status ? 'Sudah Diabayar' : 'Belum Dibayar' %></p>
+                      </td>
+                    </tr>
+                <% }) %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5">Tidak ada data</td>
+                </tr>
+            <% } %>
+            </tbody>
+          </table>
+        </div>
+        <div class="keluar">
+          <input type="submit" value="Kembali" id="keluar">
+      </div>
+    </main>
+    <script src="../script/editProfile.js"></script>
+

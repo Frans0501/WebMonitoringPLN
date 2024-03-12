@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail User</title>
+    <link rel="stylesheet" href="../../public/styles/detail.css">
+</head>
+<body>
+    <main class="table">
+        <div class="profile">
+            <button class="edit" onclick="editProfile()">EDIT</button>
+          <div class="image">
+            <img src="../../public/image/profile.png" alt="profile">
+          </div>
+          <div class="text">
+            <table>
+              <tr id="nama">
+                <td>
+                    <h3>Naruto Uzumaki</h3>
+                </td>
+              </tr>
+              <tr>
+                <td>Nomor Meteran</td>
+                <td>:</td>
+                <td>12345678</td>
+              </tr>
+              <tr>
+                <td>
+                    <label for="alamat">Alamat</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <h6>Jl Sabar</h6>
+                    <input type="text" id="alamat">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <label for="kecamatan">Kecamatan</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <h6>Pesanggrahan</h6>
+                    <input type="kecamatan" id="kecamatan">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <label for="kota">Kota</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <h6>Jakarta Utara</h6>
+                    <input type="text" id="kota">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <label for="provinsi">Provinsi</label>
+                </td>
+                <td>:</td>
+                <td>
+                    <h6>DKI Jakarta</h6>
+                    <input type="text" id="provinsi">
+                </td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+        
+        <div class="table_body">
+          <table>
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Total Penggunaan kWh</th>
+                <th>Total Pembayaran</th>
+                <th>Deadline Pembayaran</th>
+                <th>Status Pembayaran</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>100000</td>
+                <td>
+                  <strong>$150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status paid">Paid</p>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>100000</td>
+                <td>
+                  <strong>$150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status paid">Paid</p>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>100000</td>
+                <td>
+                  <strong>Rp 150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status unpaid">Paid</p>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>100000</td>
+                <td>
+                  <strong>Rp 150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status unpaid">Paid</p>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>100000</td>
+                <td>
+                  <strong>Rp 150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status unpaid">Paid</p>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>100000</td>
+                <td>
+                  <strong>Rp 150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status unpaid">Paid</p>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>100000</td>
+                <td>
+                  <strong>Rp 150.00</strong>
+                </td>
+                <td>2024-02-15</td>
+                <td>
+                  <p class="status unpaid">Paid</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </main>
+    <script src="../script/editProfile.js"></script>
+</body>
+</html>

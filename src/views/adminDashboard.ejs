@@ -1,0 +1,87 @@
+<h2 class="teks">Admin Dashboard</h2>
+
+    <div class="admin-info">
+        <div class="info-box satu">
+            <% 
+                let jumlah = 0; 
+                allData.forEach((data, i) => { 
+                    jumlah = i + 1; 
+                }); 
+            %>
+            <p><%= jumlah %></p>
+            <h4>PENGGUNA</h4>
+        </div>
+        <!-- <div class="info-box dua">
+            <p>15</p>
+            <h4>PESAN MASUK</h4>
+        </div> -->
+    </div>
+    <div class="container">
+        <div class="clock">
+            <div id="Date">Monday 26 September 2023</div>
+            <ul>
+                <li id="hours">05</li>
+                <li id="point">:</li>
+                <li id="min">20</li>
+                <li id="point">:</li>
+                <li id="sec">30</li>
+            </ul>
+        </div>
+    </div>
+    <div class="keluar">
+        <input type="submit" value="Keluar" id="keluar">
+    </div>
+    <main>
+        <!-- <div class="admin-content">
+            <div class="filtering">
+                <h2>Pencarian</h2>
+                <label for="noMeteran">Nomor Meteran</label>
+                <input type="text" placeholder="No Meteran">
+                <input type="submit" value="Mencari" id="cari">
+            </div>
+        </div> -->
+
+        <div class="user-table">
+            <h2>Daftar Pengguna</h2>
+            <input type="submit" value="Tambah Pengguna" id="add">
+            <table>
+                <thead>
+                    <tr>
+                        <th>no</th>
+                        <th>No Meteran</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Kota</th>
+                        <th>Detail Pengguna</th>
+                        <th>Hapus Pengguna</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (allData && allData.length > 0) { %>
+                        <% allData.forEach((data, i) => { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= data.noMeteran %></td>
+                                <td><%= data.nama %></td>
+                                <td><%= data.alamat %></td>
+                                <td><%= data.kota %></td>
+                                <td>
+                                    <a href="detailUser/<%= data.noMeteran%>" id="detail">Detail</a>
+                                </td>
+                                <td>
+                                    <a href="hapus/<%= data.noMeteran%>" id="hapus">Hapus</a>
+                                </td>
+
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="6">Tidak ada data</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script type="module" src=<%- js%>></script>

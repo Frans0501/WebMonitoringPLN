@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../styles/login.css" />
+  </head>
+  <body>
+    <div class="content">
+        <div class="wrapper">
+            <div class="title-text">
+              <div class="title admin">Selamat Datang</div>
+            </div>
+            <div class="form-container">
+              <div class="slide-controls">
+                <input type="radio" name="slide" id="admin" checked />
+                <input type="radio" name="slide" id="user" />
+                <label for="admin" class="slide admin">Admin</label>
+                <label for="user" class="slide user">Pengguna</label>
+                <div class="slider-tab"></div>
+              </div>
+              <div class="form-inner">
+                <form action="#" class="admin">
+                  <pre></pre>
+                  <div class="field">
+                    <input type="text" placeholder="Nama" id="nama" required />
+                  </div>
+                  <div class="field">
+                    <input type="password" placeholder="Password" id="password" required />
+                  </div>
+      
+                  <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Masuk" id="sign_admin" />
+                  </div>
+                </form>
+                <form action="#" class="user">
+                  <div class="field">
+                    <input type="text" placeholder="Nomor Meteran Listrik" id="meteran" required />
+                  </div>
+                  <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Mencari" id="sign_user" />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+    </div>
+    <script type="module" src="../script/loginAuth.js"></script>
+    <script src="../script/script.js"></script>
+  </body>
+</html>

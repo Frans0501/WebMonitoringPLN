@@ -1,0 +1,89 @@
+<div class="slider-container">
+    <div class="slider">
+      <div class="slide">
+        <img src="../image/img1.jpg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="../image/img2.png" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="../image/img3.jpg" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="../image/img4.png" alt="Slide 4">
+      </div>
+    </div>
+    <div class="slider-indicators"></div>
+  </div>
+    </div>
+  </div>
+  <h1 class="info">Pembayaran Listrik Bulanan Anda</h1>
+  <main class="table">
+      <div class="profile">
+        <div class="image">
+          <img src="../image/profile.png" alt="profile">
+        </div>
+        <div class="text">
+          <table>
+            <% dataUser.forEach((data,i) =>{i++ %>
+            <tr >
+              <td>Nama</td>
+              <td>:</td>
+              <td><%= data.nama %></td>
+            </tr>
+            <tr>
+              <td>No Meteran</td>
+              <td>:</td>
+              <td><%= data.noMeteran %></td>
+            </tr>
+            <tr>
+              <td>Alamat</td>
+              <td>:</td>
+              <td><%= data.alamat %></td>
+            </tr>
+            <tr>
+              <td>Kota</td>
+              <td>:</td>
+              <td><%= data.kota %></td>
+            </tr>
+            <%})  %> 
+          </table>
+        </div>
+      </div>
+      <div class="table_body">
+        <table>
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Total Penggunaan kWh</th>
+              <th>Total Pembayaran</th>
+              <th>Deadline Pembayaran</th>
+              <th>Status Pembayaran</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% dataKwhUser.forEach((data, i) => { %>
+              <tr>
+                <td><%= i + 1 %></td>
+                <td><%= data.kwh %></td>
+                <td>
+                  <strong>Rp <%= data.pembayaran %></strong>
+                </td>
+                <td><%= data.batas %></td>
+                <td>
+                  <p class="status <%= data.status ? 'paid' : 'unpaid' %>"><%= data.status ? 'Sudah Diabayar' : 'Belum Dibayar' %></p>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      <input type="submit" class="logout-button" value="Logout" id="logout">
+      <!-- <button class="logout-button" onclick="logout()">Logout</button> -->
+  </main>
+  
+  <div class="footer">
+    <img src="../image/footer.png" alt="footer">
+  </div>
+
+  <script type="module" src="../script/slider.js"></script> 

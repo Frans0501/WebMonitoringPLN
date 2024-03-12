@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction:column ;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff5;
+}
+
+.table_body table,
+.table_body th,
+.table_body td {
+  padding: .5rem;
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 62vw;
+  height: 70vh;
+  background-color: #fff5;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0.4rem 0.8rem #0005;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  border: 1px solid black;
+  margin-bottom: 50px;
+}
+
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction:row ;
+  padding: 1rem;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+.profile .image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile .text{
+  margin-left: 15px;
+}
+
+.text table,
+.text th,
+.text td {
+  padding: 0.3rem;
+
+}
+
+.table_body {
+  width: 95%;
+  max-height: calc(89% - 0.8rem);
+  background-color: #fffb;
+  margin: .8rem auto 3.2rem;
+  border-radius: 0.6rem;
+  overflow: auto;
+  border: 1px solid black;
+}
+
+table {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.table_header {
+  width: 100%;
+  height: 10%;
+  background-color: #fff4;
+  padding: 0.8rem 1rem;
+}
+
+.table_body::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.table_body::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: #0004;
+  visibility: hidden;
+}
+
+.table_body:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+.table_body thead th {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #d5d1defe;
+}
+
+.table_body tbody tr:nth-child(even) {
+  background-color: #0000000b;
+}
+
+.table_body tbody tr:hover {
+  background-color: #fff1;
+}
+
+.table_body .status {
+  padding: 0.4rem 0; 
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.status.paid {
+  background-color: #86e49d;
+  color: #006b21;
+}
+
+.status.unpaid {
+  background-color: #f98a8a;
+  color: #b30000;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-height: 300px; /* Sesuaikan dengan tinggi slider yang diinginkan */
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 70%;
+}
+
+.slider-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #3498db;
+}
+
+.info {
+  margin: 20px;
+  font-size: 35px;
+  font-family: 'Courier New', Courier, monospace;
+  border-bottom: 1px solid #256172;
+}
+
+.footer{
+  height: max-content;
+  margin-bottom: 0px;
+}
+
+.logout-button {
+  position: fixed;
+  bottom: 5px;
+  right: 36px;
+  padding: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.logout-button:hover {
+  background-color: #2980b9;
+}
