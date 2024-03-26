@@ -26,25 +26,25 @@
         <div class="text">
           <table>
             <% dataUser.forEach((data,i) =>{i++ %>
+              <tr>
+                <td>ID Pelanggan</td>
+                <td>:</td>
+                <td><%= data.id_pelanggan %></td>
+              </tr>
+              <tr>
+                <td>Alamat</td>
+                <td>:</td>
+                <td><%= data.alamat %></td>
+              </tr>
+              <tr>
+                <td>Kota</td>
+                <td>:</td>
+                <td><%= data.kota %></td>
+              </tr>
             <tr >
-              <td>Nama</td>
+              <td>Provinsi</td>
               <td>:</td>
-              <td><%= data.nama %></td>
-            </tr>
-            <tr>
-              <td>No Meteran</td>
-              <td>:</td>
-              <td><%= data.noMeteran %></td>
-            </tr>
-            <tr>
-              <td>Alamat</td>
-              <td>:</td>
-              <td><%= data.alamat %></td>
-            </tr>
-            <tr>
-              <td>Kota</td>
-              <td>:</td>
-              <td><%= data.kota %></td>
+              <td><%= data.provinsi %></td>
             </tr>
             <%})  %> 
           </table>
@@ -54,7 +54,7 @@
         <table>
           <thead>
             <tr>
-              <th>id</th>
+              <th>No</th>
               <th>Total Penggunaan kWh</th>
               <th>Total Pembayaran</th>
               <th>Deadline Pembayaran</th>
@@ -62,19 +62,25 @@
             </tr>
           </thead>
           <tbody>
+            <% if (dataKwhUser && dataKwhUser.length > 0) { %>
             <% dataKwhUser.forEach((data, i) => { %>
               <tr>
                 <td><%= i + 1 %></td>
-                <td><%= data.kwh %></td>
+                <td><%= data.gap_kwh%></td>
                 <td>
-                  <strong>Rp <%= data.pembayaran %></strong>
+                  <strong>Rp <%= data.total_price.toLocaleString('id-ID') %></strong>
                 </td>
-                <td><%= data.batas %></td>
+                <td><%= data.deadline %></td>
                 <td>
                   <p class="status <%= data.status ? 'paid' : 'unpaid' %>"><%= data.status ? 'Sudah Diabayar' : 'Belum Dibayar' %></p>
                 </td>
               </tr>
             <% }) %>
+            <% } else { %>
+              <tr>
+                  <td colspan="5">Tidak ada data</td>
+              </tr>
+          <% } %>
           </tbody>
         </table>
       </div>

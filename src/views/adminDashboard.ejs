@@ -32,14 +32,6 @@
         <input type="submit" value="Keluar" id="keluar">
     </div>
     <main>
-        <!-- <div class="admin-content">
-            <div class="filtering">
-                <h2>Pencarian</h2>
-                <label for="noMeteran">Nomor Meteran</label>
-                <input type="text" placeholder="No Meteran">
-                <input type="submit" value="Mencari" id="cari">
-            </div>
-        </div> -->
 
         <div class="user-table">
             <h2>Daftar Pengguna</h2>
@@ -48,10 +40,10 @@
                 <thead>
                     <tr>
                         <th>no</th>
-                        <th>No Meteran</th>
-                        <th>Nama</th>
+                        <th>ID Pelanggan</th>
                         <th>Alamat</th>
                         <th>Kota</th>
+                        <th>Provinsi</th>
                         <th>Detail Pengguna</th>
                         <th>Hapus Pengguna</th>
                     </tr>
@@ -61,15 +53,15 @@
                         <% allData.forEach((data, i) => { %>
                             <tr>
                                 <td><%= i + 1 %></td>
-                                <td><%= data.noMeteran %></td>
-                                <td><%= data.nama %></td>
+                                <td><%= data.id_pelanggan %></td>
                                 <td><%= data.alamat %></td>
                                 <td><%= data.kota %></td>
+                                <td><%= data.provinsi %></td>
                                 <td>
-                                    <a href="detailUser/<%= data.noMeteran%>" id="detail">Detail</a>
+                                    <a href="detailUser/<%= data.id_pelanggan%>" id="detail">Detail</a>
                                 </td>
                                 <td>
-                                    <a href="hapus/<%= data.noMeteran%>" id="hapus">Hapus</a>
+                                    <a href="hapus/<%= data.id_pelanggan%>" id="hapus">Hapus</a>
                                 </td>
 
                             </tr>

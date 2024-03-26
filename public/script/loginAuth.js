@@ -28,7 +28,7 @@ async function login() {
     if(nama.value && password.value) {
       q = query(collection(db, 'admin'), where('username', '==', nama.value), where('password', '==', password.value));
     } else if(meteran.value) {
-      q = query(collection(db, 'users'), where('noMeteran', '==', meteran.value));
+      q = query(collection(db, 'customers'), where('id_pelanggan', '==', meteran.value));
 
     }else {
       console.error("Data tidak lengkap!");

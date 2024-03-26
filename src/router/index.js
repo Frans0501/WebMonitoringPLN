@@ -91,35 +91,6 @@ router.get('/detailUser/:noMeteran',async (req, res) => {
     }
 });
 
-router.get('/test',async (req, res) => {
-    await uploadProcessedData();
-    return res.send("Data telah diupload");
-});
-
-router.get('/test2', async (req, res) => {
-    const data = await getAllDataCollection();
-
-    return res.json(data);
-});
-
-router.get('/test3', async (req, res) => {
-    // const id = '12345678';
-    const data = await getDataByRequest('12345678');
-    
-    return res.json(data);
-});
-
-router.get('/test4', async (req, res) => {
-    try {
-        const data = await getAllDataSubCollection('12345678');
-        return res.json(data);
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
-
 router.use("/", (req,res)=>{
     res.status(404);
     res.send("Ini adalah halaman 404");

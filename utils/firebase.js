@@ -67,7 +67,7 @@ export async function uploadProcessedData (noMeteran, nama, alamat, kota) {
 //Get all data collection
 export async function getAllDataCollection (){
     try{
-        const collectionRef = collection(firestoreDb, 'users');
+        const collectionRef = collection(firestoreDb, 'customers');
         const finalData = [];
 
         const q = query(collectionRef);
@@ -85,10 +85,10 @@ export async function getAllDataCollection (){
 //Get data by request
 export async function getDataByRequest (id){
     try{
-        const collectionRef = collection(firestoreDb, 'users');
+        const collectionRef = collection(firestoreDb, 'customers');
         const finalData = [];
 
-        const q = query(collectionRef, where('noMeteran', '==', id));
+        const q = query(collectionRef, where('id_pelanggan', '==', id));
         const docSnap = await getDocs(q);
 
         docSnap.forEach(doc => {
@@ -104,14 +104,14 @@ export async function getDataByRequest (id){
 //get all data subCollection
 export async function getAllDataSubCollection(id){
     try{
-        const collectionRef = collection(firestoreDb, 'users');
+        const collectionRef = collection(firestoreDb, 'customers');
         const finalData = [];
 
-        const q = query(collectionRef, where('noMeteran', '==', id));
+        const q = query(collectionRef, where('id_pelanggan', '==', id));
         const docSnap = await getDocs(q);
 
         const promises = docSnap.docs.map( async (doc) => {
-            const subcollectionRef = collection(firestoreDb, 'users', doc.id, 'data');
+            const subcollectionRef = collection(firestoreDb, 'customers', doc.id, 'data');
             const subcollectionSnapshot = await getDocs(subcollectionRef);
             subcollectionSnapshot.forEach(subdoc => {
                 // console.log('Subcollection document id:', subdoc.id, ' => ', subdoc.data());
@@ -129,12 +129,12 @@ export async function getAllDataSubCollection(id){
 //delete data
 export async function deleteData(id) {
     try {
-        const collectionRef = collection(firestoreDb, 'users');
-        const q = query(collectionRef, where('noMeteran', '==', id));
+        const collectionRef = collection(firestoreDb, 'customers');
+        const q = query(collectionRef, where('id_pelanggan', '==', id));
         const docSnap = await getDocs(q);
         
         const promises = docSnap.docs.map(async (doc) => {
-            const subcollectionRef = collection(firestoreDb, 'users', doc.id, 'data');
+            const subcollectionRef = collection(firestoreDb, 'customers', doc.id, 'data');
             const subcollectionSnapshot = await getDocs(subcollectionRef);
             subcollectionSnapshot.forEach(async (subdoc) => {
                 await deleteDoc(subdoc.ref); // Menunggu hingga penghapusan selesai

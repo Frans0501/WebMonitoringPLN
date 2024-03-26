@@ -19,7 +19,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 const getDataUsers = async () => {
-  const querySnapshot = await getDocs(collection(db, 'users'));
+  const querySnapshot = await getDocs(collection(db, 'customers'));
   
   const allData = [];
 
@@ -34,7 +34,7 @@ const getDataUsers = async () => {
   });
 
   await Promise.all(querySnapshot.docs.map(async (doc, index) => {
-    const subcollectionRef = collection(db, 'users', doc.id, 'data');
+    const subcollectionRef = collection(db, 'customers', doc.id, 'data');
     const subcollectionSnapshot = await getDocs(subcollectionRef);
 
     subcollectionSnapshot.docs.forEach(subdoc => {

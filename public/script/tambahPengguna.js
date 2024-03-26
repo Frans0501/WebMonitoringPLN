@@ -21,8 +21,8 @@ const add = document.getElementById('add');
 const back = document.getElementById('back');
 
 async function  uploadData() {
-    const noMeteran = document.getElementById('meteran').value;
-    const nama = document.getElementById('nama').value;
+    const id = document.getElementById('id').value;
+    const provinsi = document.getElementById('provinsi').value;
     const alamat = document.getElementById('alamat').value;
     const kota = document.getElementById('kota').value;
 
@@ -34,34 +34,34 @@ async function  uploadData() {
     const minute = date.getMinutes();
     const second = date.getSeconds();
     const formattedDate = `${year}${month}${day}${hour}${minute}${second}`;
+    const nameDocument = `customer ${id}`;
 
-    const q = query(collection(db, 'users'), where('noMeteran', '==', noMeteran));
+    const q = query(collection(db, 'customers'), where('id_pelanggan', '==', id));
     const querySnapshot = await getDocs(q);
 
     const dataToUpload = {
-        noMeteran : noMeteran,
-        nama : nama,
+        id_pelanggan : id,
+        provinsi : provinsi,
         alamat : alamat,
         kota : kota,
     };
 
     //cek inputan apakah kosong atau tidak
-    if (noMeteran === '' || nama === '' || alamat === '' || kota === '') {
+    if (id === '' || provinsi === '' || alamat === '' || kota === '') {
         console.error("Data tidak lengkap!");
         alert("Data tidak lengkap!");
-        throw new Error("No Meteran sudah ada!");
+        throw new Error("ID Pelanggan sudah ada!");
     }else{
         if (querySnapshot.size > 0) {
-            console.error("No Meteran sudah ada!");
-            alert("No Meteran sudah ada!");
-            throw new Error("No Meteran sudah ada!");
+            console.error("ID Pelanggan sudah ada!");
+            alert("ID Pelanggan sudah ada!");
+            throw new Error("ID Pelanggan sudah ada!");
         }else{
             try {
-                const documentRef = doc(db, 'users', formattedDate);
+                const documentRef = doc(db, 'customers', nameDocument);
                 let dataUpdated = await setDoc(documentRef, dataToUpload);
                 alert('Data berhasil ditambahkan ke database')
                 return true;
-
             } catch (error) {
                 console.error("Error saat menambahkan dokumen: ", error);
                 alert("Terjadi kesalahan saat menambahkan data!");
