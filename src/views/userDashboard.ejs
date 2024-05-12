@@ -17,7 +17,7 @@
   </div>
     </div>
   </div>
-  <h1 class="info">Pembayaran Listrik Bulanan Anda</h1>
+  <h1 class="title">Tagihan Listrik Pascabayar</h1>
   <main class="table">
       <div class="profile">
         <div class="image">
@@ -46,6 +46,16 @@
               <td>:</td>
               <td><%= data.provinsi %></td>
             </tr>
+            <tr >
+              <td>Golongan</td>
+              <td>:</td>
+              <td><%= data.golongan %></td>
+            </tr>
+            <tr >
+              <td>Daya</td>
+              <td>:</td>
+              <td><%= data.daya %></td>
+            </tr>
             <%})  %> 
           </table>
         </div>
@@ -55,10 +65,13 @@
           <thead>
             <tr>
               <th>No</th>
-              <th>Total Penggunaan kWh</th>
+              <th>Bukti Meteran</th>
+              <th>Total kWh Saat Ini</th>
+              <th>Total kWh Sebelumnya</th>
+              <th>Penggunaan kWh Bulan ini</th>
               <th>Total Pembayaran</th>
-              <th>Deadline Pembayaran</th>
-              <th>Status Pembayaran</th>
+              <th>Batas Pembayaran</th>
+              <!-- <th>Status Pembayaran</th> -->
             </tr>
           </thead>
           <tbody>
@@ -66,14 +79,17 @@
             <% dataKwhUser.forEach((data, i) => { %>
               <tr>
                 <td><%= i + 1 %></td>
+                <td><a href="<%= data.Image_URL %>" target="_blank" >Lihat Bukti</a></td>
+                <td><%= data.total_kwh_this_month%></td>
+                <td><%= data.total_kwh_last_month%></td>
                 <td><%= data.gap_kwh%></td>
                 <td>
                   <strong>Rp <%= data.total_price.toLocaleString('id-ID') %></strong>
                 </td>
                 <td><%= data.deadline %></td>
-                <td>
+                <!-- <td>
                   <p class="status <%= data.status ? 'paid' : 'unpaid' %>"><%= data.status ? 'Sudah Diabayar' : 'Belum Dibayar' %></p>
-                </td>
+                </td> -->
               </tr>
             <% }) %>
             <% } else { %>
@@ -84,10 +100,19 @@
           </tbody>
         </table>
       </div>
+
       <input type="submit" class="logout-button" value="Logout" id="logout">
-      <!-- <button class="logout-button" onclick="logout()">Logout</button> -->
   </main>
-  
+  <div class="keterangan">
+    <p>Golongan Tarif Listrik 2024:</p>
+    <ul>
+      <li>Golongan R-1 Tegangan Rendah (R-1/TR): Memiliki daya sebesar 900 VA. Biaya per kWh untuk golongan ini adalah Rp 1.352 per kWh.</li>
+      <li>Golongan R-1 Tegangan Rendah (R-1/TR): Memiliki daya sebesar 1.300 VA. Biaya per kWh untuk golongan ini adalah Rp 1.444,70 per kWh.</li>
+      <li>Golongan R-1 Tegangan Rendah (R-1/TR): Memiliki daya sebesar 2.200 VA. Biaya per kWh untuk golongan ini adalah Rp 1.444,70 per kWh.</li>
+      <li>Golongan R-2 Tegangan Rendah (R-2/TR): Memiliki daya sebesar 3.500 VA hingga 5.500 VA. Biaya per kWh untuk golongan ini adalah Rp 1.669,53 per kWh .</li>
+      <li>Golongan R-3 Tegangan Rendah (R-3/TR): Memiliki daya sebesar 6.600 VA. Biaya per kWh untuk golongan ini adalah Rp 1.669,53 per kWh.</li>
+    </ul>
+  </div>
   <div class="footer">
     <img src="../image/footer.png" alt="footer">
   </div>

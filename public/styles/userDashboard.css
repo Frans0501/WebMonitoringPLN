@@ -23,6 +23,11 @@ body {
   text-align: center;
 }
 
+.title {
+  margin-top: 15px;
+  margin-bottom: 15px;;
+}
+
 .table {
   display: flex;
   position: relative;
@@ -181,11 +186,11 @@ img {
   background-color: #3498db;
 }
 
-.info {
-  margin: 20px;
-  font-size: 35px;
+.keterangan {
+  margin-top: -30px;
+  margin-bottom: 50px;
+  font-size: 13px;
   font-family: 'Courier New', Courier, monospace;
-  border-bottom: 1px solid #256172;
 }
 
 .footer{

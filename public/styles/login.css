@@ -24,7 +24,7 @@ body {
 }
 .content{
     margin-top: 55px;
-    width: 27%;
+    width: 30%;
     height: 90%;
     display: flex;
     flex-direction: row;
@@ -45,16 +45,23 @@ body {
   width: 60vh;
 }
 .wrapper .title-text {
-  display: flex;
+  /* display: flex; */
   width: 200%;
+  /* border: 1px solid red; */
 }
 .wrapper .title {
-    margin-top: 70px;
+  /* border: 1px solid black; */
+  margin-top: 30px;
   width: 50%;
   font-size: 35px;
-  font-weight: 600;
+  font-weight: 300;
   text-align: center;
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .top{
+  font-size: 24px;
+  /* border: 1px solid blue; */
+  font-weight: 600;
 }
 .wrapper .slide-controls {
   position: relative;

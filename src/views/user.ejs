@@ -9,26 +9,36 @@
             <table>
               <% if (dataUser && dataUser.length > 0) { %>
                 <% dataUser.forEach((data, i) => { %>
-                    <tr>
-                      <td>ID Pelanggan</td>
-                      <td>:</td>
-                      <td><%= data.id_pelanggan %></td>
-                    </tr>
-                    <tr>
-                      <td>Alamat</td>
-                      <td>:</td>
-                      <td><%= data.alamat %></td>
-                    </tr>
-                    <tr>
-                      <td>kota</td>
-                      <td>:</td>
-                      <td><%= data.kota %></td>
-                    </tr>
-                    <tr>
-                      <td>Provinsi</td>
-                      <td>:</td>
-                      <td><%= data.provinsi %></td>
-                    </tr>
+                  <tr>
+                    <td>ID Pelanggan</td>
+                    <td>:</td>
+                    <td><%= data.id_pelanggan %></td>
+                  </tr>
+                  <tr>
+                    <td>Alamat</td>
+                    <td>:</td>
+                    <td><%= data.alamat %></td>
+                  </tr>
+                  <tr>
+                    <td>Kota</td>
+                    <td>:</td>
+                    <td><%= data.kota %></td>
+                  </tr>
+                <tr >
+                  <td>Provinsi</td>
+                  <td>:</td>
+                  <td><%= data.provinsi %></td>
+                </tr>
+                <tr >
+                  <td>Golongan</td>
+                  <td>:</td>
+                  <td><%= data.golongan %></td>
+                </tr>
+                <tr >
+                  <td>Daya</td>
+                  <td>:</td>
+                  <td><%= data.daya %></td>
+                </tr>
                 <% }) %>
             <% } else { %>
                 <tr>
@@ -44,28 +54,34 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>Total Penggunaan kWh</th>
+                <th>Bukti Meteran</th>
+                <th>Total kWh Saat Ini</th>
+                <th>Total kWh Sebelumnya</th>
+                <th>Penggunaan kWh Bulan ini</th>
                 <th>Total Pembayaran</th>
-                <th>Deadline Pembayaran</th>
-                <th>Status Pembayaran</th>
+                <th>Batas Pembayaran</th>
+                <!-- <th>Status Pembayaran</th> -->
               </tr>
             </thead>
             <tbody>
               <% if (dataKwhUser && dataKwhUser.length > 0) { %>
-                <% dataKwhUser.forEach((data, i) => { %>
-                  <tr>
-                    <td><%= i + 1 %></td>
-                    <td><%= data.gap_kwh%></td>
-                    <td>
-                      <strong>Rp <%= data.total_price.toLocaleString('id-ID') %></strong>
-                    </td>
-                    <td><%= data.deadline %></td>
-                    <td>
-                      <p class="status <%= data.status ? 'paid' : 'unpaid' %>"><%= data.status ? 'Sudah Diabayar' : 'Belum Dibayar' %></p>
-                    </td>
-                    </tr>
-                <% }) %>
-            <% } else { %>
+              <% dataKwhUser.forEach((data, i) => { %>
+                <tr>
+                  <td><%= i + 1 %></td>
+                  <td><a href="<%= data.Image_URL %>" target="_blank" >Lihat Bukti</a></td>
+                  <td><%= data.total_kwh_this_month%></td>
+                  <td><%= data.total_kwh_last_month%></td>
+                  <td><%= data.gap_kwh%></td>
+                  <td>
+                    <strong>Rp <%= data.total_price.toLocaleString('id-ID') %></strong>
+                  </td>
+                  <td><%= data.deadline %></td>
+                  <!-- <td>
+                    <p class="status <%= data.status ? 'paid' : 'unpaid' %>"><%= data.status ? 'Sudah Diabayar' : 'Belum Dibayar' %></p>
+                  </td> -->
+                </tr>
+              <% }) %>
+              <% } else { %>
                 <tr>
                     <td colspan="5">Tidak ada data</td>
                 </tr>
